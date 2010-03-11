@@ -1,6 +1,7 @@
 #include <gtk/gtk.h>
 #include <stdlib.h>
 #include <stdio.h>
+#include <string.h>
 #include <gconf/gconf-client.h>
 #include <location/location-gps-device.h>
 #include <location/location-gpsd-control.h>
@@ -99,8 +100,8 @@ gconf_key_change_callback(GConfClient* client, guint conn_id, GConfEntry* entry,
     struct GluppyPrefs *prefs = (struct GluppyPrefs*)userData;
     const GConfValue* value = NULL;
     const gchar* keyname = NULL;
-    gchar* strValue = NULL;
-    gchar* strName = NULL;
+    //gchar* strValue = NULL;
+    //gchar* strName = NULL;
     
     keyname = gconf_entry_get_key(entry);
     value = gconf_entry_get_value(entry);
@@ -125,7 +126,6 @@ gconf_key_change_callback(GConfClient* client, guint conn_id, GConfEntry* entry,
         
     } else if(!strcmp(keyname, SERVICE_KEY_RUN)) {
         prefs->run = gconf_value_get_bool(value);      
-        g_print("run: %b\n", prefs->run);
     }
     
     if(prefs->run) 
