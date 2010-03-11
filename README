@@ -1,0 +1,10 @@
+The following gconf keys must be set for operation.
+I plan to add a config applet of some sort eventually, but in the meantime..
+
+
+/apps/Maemo/gluppyd/auth_user string username
+/apps/Maemo/gluppyd/auth_pass string password
+/apps/Maemo/gluppyd/update_interval integer rate_in_seconds
+/apps/Maemo/gluppyd/run boolean perform_position_updates
+
+
