@@ -1,0 +1,10 @@
+[Desktop Entry]
+Encoding=UTF-8
+Version=1.0
+Name=Gluppy settings
+Comment=Modify Google Latitude Updater Settings
+Type=HildonControlPanelPlugin
+Icon=qgn_list_cp_isetup
+X-control-panel-plugin=libgluppy.so
+Categories=general
+
