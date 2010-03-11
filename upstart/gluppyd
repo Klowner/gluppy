@@ -1,7 +1,11 @@
 author "Mark Riedesel"
 description "Start the Google Latitude Updater daemon"
 
+console none
+
 start on started hildon-desktop
 
-exec /usr/bin/gluppyd.launch
+exec /usr/sbin/gluppyd
+
+respawn
 
