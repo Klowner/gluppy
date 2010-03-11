@@ -1,37 +1,14 @@
 /*
  gcc `pkg-config --cflags --libs glib-2.0 liblocation hildon-1 libcurl dbus-glib-1` gluppy.c -o gluppy
 */
-//#include <gtk/gtk.h>
 #include <curl/curl.h>
-//#include <glib.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <time.h>
-//#include <location/location-gps-device.h>
-//#include <location/location-gpsd-control.h>
 #include "latitude.h"
 
 CURL *curl = NULL;
-
-/*
-typedef struct {
-		size_t size;
-		char *content;
-} ResponseData;
-
-static size_t consume_response(void *buffer, size_t size, size_t nmemb, void *target_ptr) {
-	ResponseData *target = (ResponseData*)target_ptr;
-	target->content = g_realloc(target->content,
-								target->size + size * nmemb);
-	g_memmove(target->content + target->size,
-				buffer,
-				size*nmemb);
-	target->size += size*nmemb;
-	
-	return size*nmemb;							
-}
-*/
 
 size_t write_data(void *buffer, size_t size, size_t nmemb, void *userp) {
 	printf(buffer);
@@ -175,45 +152,4 @@ void latitude_set_location(CURL *curl, int *acc, float *lat, float *lng) {
 	resp = curl_easy_perform(curl);
 }	
 
-/*
-int main(int argc, char **argv) {
-	LocationGPSDControl *control; 
-	LocationGPSDevice *device;
-	GMainLoop *loop;
-	
-	curl = curl_easy_init();
 
-		
-	g_type_init();
-	
-	control = location_gpsd_control_get_default();
-   	device = g_object_new(LOCATION_TYPE_GPS_DEVICE, NULL);
-	
-	g_object_set(G_OBJECT(control),
-			"preferred-method", LOCATION_METHOD_USER_SELECTED,
-			"preferred-interval", LOCATION_INTERVAL_DEFAULT,
-			NULL);
-
-	g_signal_connect(device, "changed", G_CALLBACK(on_location_changed), device); 
-	
-
-	
-	char *error_buff = (char*)malloc(sizeof(char)*1024);
-	curl_easy_setopt(curl, CURLOPT_ERRORBUFFER, error_buff);
-	
-			
-	curl_easy_setopt(curl, CURLOPT_COOKIEJAR, "/home/user/.gluppycookies");
-	
-	authenticate(curl, "<USERNAME>","<PASSWORD>");
-	
-	// Replace these with data acquired via the location API obviously.
-	int acc = 100;
-	float lat = 40.0;
-	float lng = -50.0;
-	
-	set_location(curl, &acc, &lat, &lng);	
-	
-	curl_easy_cleanup(curl);
-	return 0;
-}
-*/
