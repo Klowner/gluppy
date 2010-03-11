@@ -16,6 +16,7 @@ src/latitude.o: src/latitude.c src/latitude.h
 src/gluppyd.o: src/gluppyd.c src/latitude.o src/gconf-keys.h
 
 install: $(PROG)
+	mkdir -p $(DESTDIR)$(PREFIX)/bin/
 	install $(PROG) $(DESTDIR)$(PREFIX)/bin/$(PROG)
 	install $(PROG).launch $(DESTDIR)$(PREFIX)/bin/$(PROG).launch
 	mkdir -p $(DESTDIR)/etc/event.d/
