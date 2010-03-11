@@ -19,27 +19,26 @@ execute(osso_context_t* osso, gpointer data, gboolean user_activated)
                 GTK_RESPONSE_CANCEL,
                 NULL));
     
-    // This sucks, I need text input things.
-    /*
-    GtkWidget *interval_selector = hildon_touch_selector_new_text();
-    hildon_touch_selector_append_text(HILDON_TOUCH_SELECTOR(interval_selector), "1 minute");    
-    hildon_touch_selector_append_text(HILDON_TOUCH_SELECTOR(interval_selector), "5 minutes");    
-    hildon_touch_selector_append_text(HILDON_TOUCH_SELECTOR(interval_selector), "10 minutes");    
-    hildon_touch_selector_append_text(HILDON_TOUCH_SELECTOR(interval_selector), "15 minutes");    
-    hildon_touch_selector_append_text(HILDON_TOUCH_SELECTOR(interval_selector), "30 minutes");
-    GtkWidget *interval_picker = hildon_picker_button_new(
-                                        HILDON_SIZE_THUMB_HEIGHT | HILDON_SIZE_AUTO_WIDTH,
-                                        HILDON_BUTTON_ARRANGEMENT_HORIZONTAL);
-    hildon_button_set_title(HILDON_BUTTON(syntax_picker
+ 
+    // Run checkbox thing 
+    GtkWidget *run_button = hildon_check_button_new (HILDON_SIZE_HALFSCREEN_WIDTH | HILDON_SIZE_FINGER_HEIGHT );
+    gtk_button_set_label(GTK_BUTTON(run_button), "Perform location updates");
+    gtk_container_add(GTK_CONTAINER(dialog->vbox), GTK_WIDGET(run_button));
     
-    gtk_container_add(GTK_CONTAINER(dialog->vbox), interval_selector); 
-    */
+    // Username entry
+    GtkWidget *user_entry = hildon_entry_new( HILDON_SIZE_HALFSCREEN_WIDTH | HILDON_SIZE_FINGER_HEIGHT );
+    gtk_container_add(GTK_CONTAINER(dialog->vbox), GTK_WIDGET(user_entry));
     
+    // Password entry
+    GtkWidget *pass_entry = hildon_entry_new( HILDON_SIZE_HALFSCREEN_WIDTH | HILDON_SIZE_FINGER_HEIGHT );
+    gtk_entry_set_visibility(GTK_ENTRY(pass_entry), FALSE);
+    gtk_container_add(GTK_CONTAINER(dialog->vbox), GTK_WIDGET(pass_entry));
+
     gtk_widget_show_all(GTK_WIDGET(dialog));
 
     response = gtk_dialog_run(GTK_DIALOG(dialog));
     if(response == GTK_RESPONSE_OK) {
-        // dump the values to gconf
+        // Dump the input widget values to gconf
     }
     gtk_widget_destroy(GTK_WIDGET(dialog));
     return OSSO_OK;
