@@ -46,7 +46,7 @@ on_location_changed(LocationGPSDevice *device, gpointer data)
     if(device->fix) {
         last_fix.lat = device->fix->latitude;
         last_fix.lng = device->fix->longitude;
-        last_fix.acc = device->fix->eph / 1000; // Horizontal accuracy (cm) to meters 
+        last_fix.acc = device->fix->eph / 100; // Horizontal accuracy (cm) to meters 
         /*
         g_print("lat = %f, lng = %f, acc = %e\n",
             device->fix->latitude,
@@ -182,7 +182,7 @@ main(int argc, char **argv)
     device = g_object_new(LOCATION_TYPE_GPS_DEVICE, NULL);
     
     g_object_set(G_OBJECT(control),
-                    "preferred-method", LOCATION_METHOD_GNSS | LOCATION_METHOD_AGNSS | LOCATION_METHOD_USER_SELECTED,
+                    "preferred-method", LOCATION_METHOD_GNSS | LOCATION_METHOD_AGNSS,
                     "preferred-interval", LOCATION_INTERVAL_120S,
                     NULL);
     

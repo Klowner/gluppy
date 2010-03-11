@@ -129,20 +129,20 @@ void latitude_set_location(CURL *curl, int *acc, float *lat, float *lng) {
 	chunk = curl_slist_append(chunk, "Accept-Charset: ISO-8859-1,utf-8;q=0.7,*;q=0.7");
 	chunk = curl_slist_append(chunk, "X-ManualHeader: true");
 
-	strcpy(ptr, "accuracy=\0");		ptr += strlen("accuracy=\0");
+	strcpy(ptr, "accuracy=");		ptr += strlen("accuracy=");
 	strcpy(ptr, acc_str);			ptr += strlen(acc_str);
 	
-	strcpy(ptr, "&lat=\0");			ptr += strlen("&lat=\0");
+	strcpy(ptr, "&lat=");			ptr += strlen("&lat=");
 	strcpy(ptr, lat_str);			ptr += strlen(lat_str);
 
-	strcpy(ptr, "&lng=\0");			ptr += strlen("&lng=\0");
+	strcpy(ptr, "&lng=");			ptr += strlen("&lng=");
 	strcpy(ptr, lng_str);			ptr += strlen(lng_str);
 	
-	strcpy(ptr, "&cts=\0");			ptr += strlen("&cts=\0");
+	strcpy(ptr, "&cts=");			ptr += strlen("&cts=");
 	strcpy(ptr, time_str);			ptr += strlen(time_str);
 	
-	strcpy(ptr, "&t=ul&auto=true\0");		
-	ptr += strlen("&t=ul&auto=true\0");
+	strcpy(ptr, "&t=ul&auto=true");		
+	ptr += strlen("&t=ul&auto=true");
 	
 	curl_easy_setopt(curl, CURLOPT_POSTFIELDS, &post_buffer[0]);		
 	curl_easy_setopt(curl, CURLOPT_HTTPHEADER, chunk);

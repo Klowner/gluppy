@@ -1,3 +1,12 @@
+gluppy (0.11-1) unstable; urgency=low
+
+  * Fixed accuracy calculation because I am math dumb
+  * Changed GPS mode to low battery consumption mode
+    until a better solution is implemented for long
+    update intervals
+
+ -- Mark Riedesel <mark@klowner.com> Thu, 11 Mar 2010 09:49:00 -0600
+
 gluppy (0.10-1) unstable; urgency=low
 
   * Initial release
