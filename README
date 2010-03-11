@@ -8,3 +8,10 @@ I plan to add a config applet of some sort eventually, but in the meantime..
 /apps/Maemo/gluppyd/run boolean perform_position_updates
 
 
+Example:
+
+ # gconftool-2 --set --type string /apps/Maemo/gluppyd/auth_user mark@klowner.com
+ # gconftool-2 --set --type string /apps/Maemo/gluppyd/auth_pass <password>
+ # gconftool-2 --set --type int /apps/Maemo/gluppyd/update_interval 300
+ # gconftool-2 --set --type bool /apps/Maemo/gluppyd/run true
+

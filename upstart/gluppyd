@@ -3,5 +3,5 @@ description "Start the Google Latitude Updater daemon"
 
 start on started hildon-desktop
 
-exec /usr/sbin/gluppyd.launch
+exec /usr/bin/gluppyd.launch
 
