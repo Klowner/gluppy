@@ -1,4 +1,5 @@
 #define SERVICE_GCONF_ROOT "/apps/Maemo/gluppyd"
 #define SERVICE_KEY_USER SERVICE_GCONF_ROOT "/auth_user"
-#define SERVICE_KEY_PASS SERVICE_GCONF_ROOT "/auth_user"
-
+#define SERVICE_KEY_PASS SERVICE_GCONF_ROOT "/auth_pass"
+#define SERVICE_KEY_UPDATE_INTERVAL SERVICE_GCONF_ROOT "/update_interval"
+#define SERVICE_KEY_RUN SERVICE_GCONF_ROOT "/run"

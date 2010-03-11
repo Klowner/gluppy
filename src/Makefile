@@ -1,4 +1,4 @@
-gluppyd: gluppyd.c latitude.o
+gluppyd: gluppyd.c latitude.o gconf-keys.h
 	gcc `pkg-config --cflags --libs gtk+-2.0 gconf-2.0 libcurl liblocation` latitude.o gluppyd.c -o gluppyd
 
 latitude.o: latitude.h latitude.c

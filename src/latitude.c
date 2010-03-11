@@ -170,7 +170,7 @@ void latitude_set_location(CURL *curl, int *acc, float *lat, float *lng) {
 	curl_easy_setopt(curl, CURLOPT_POSTFIELDS, &post_buffer[0]);		
 	curl_easy_setopt(curl, CURLOPT_HTTPHEADER, chunk);
 	curl_easy_setopt(curl, CURLOPT_URL, MAP_URL);	
-	curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, write_data);
+	//curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, write_data);
 	
 	resp = curl_easy_perform(curl);
 }	
