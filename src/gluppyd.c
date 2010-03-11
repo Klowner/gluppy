@@ -182,7 +182,7 @@ main(int argc, char **argv)
     device = g_object_new(LOCATION_TYPE_GPS_DEVICE, NULL);
     
     g_object_set(G_OBJECT(control),
-                    "preferred-method", LOCATION_METHOD_GNSS | LOCATION_METHOD_AGNSS,
+                    "preferred-method", LOCATION_METHOD_CWP | LOCATION_METHOD_ACWP,
                     "preferred-interval", LOCATION_INTERVAL_120S,
                     NULL);
     

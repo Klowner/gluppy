@@ -1,3 +1,11 @@
+gluppy (0.11-2) unstable; urgency=low
+
+  * ACTUALLY changed GPS mode to low battery consumption / inaccurate mode,
+    becase I clearly cannot read documentation.
+
+ -- Mark Riedesel <mark@klowner.com>  Thu, 11 Mar 2010 11:18:00 -0600
+
+
 gluppy (0.11-1) unstable; urgency=low
 
   * Fixed accuracy calculation because I am math dumb
